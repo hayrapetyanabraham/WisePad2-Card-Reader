@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        bbdevice_exampe_keystore {
+            keyAlias 'key0'
+            keyPassword 'KYUbsdf4575Is'
+            storeFile file('bbdevice_exampe_keystore')
+            storePassword 'jtd54eDSffwi'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "com.bbpos.bbdevice.wiseposexample2"
+        minSdkVersion 19
+        targetSdkVersion 26
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.bbdevice_exampe_keystore
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
+    implementation files('libs/acra-4.7.0.jar')
+}
